@@ -1,0 +1,90 @@
+[
+    {
+        "ok": true,
+        "result": [
+            {
+                "update_id": 55578535,
+                "channel_post": {
+                    "message_id": 350,
+                    "sender_chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "date": 1653846404,
+                    "forward_from_chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "forward_from_message_id": 348,
+                    "forward_date": 1653827875,
+                    "document": {
+                        "file_name": "NR7NR4 with INSIDE, Technical Analysis Scanner.xlsx",
+                        "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "file_id": "BQACAgUAAx0CWUEE-wACAV5ik7GE0S1sRmPTLDakVqbQYPskHAACNgYAAlXRmFRk9EaCml_QGyQE",
+                        "file_unique_id": "AgADNgYAAlXRmFQ",
+                        "file_size": 15729
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "ok": true,
+        "result": [
+            {
+                "update_id": 55578533,
+                "channel_post": {
+                    "message_id": 348,
+                    "sender_chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "date": 1653827875,
+                    "document": {
+                        "file_name": "NR7NR4 with INSIDE, Technical Analysis Scanner.xlsx",
+                        "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "file_id": "BQACAgUAAx0CWUEE-wACAVxik6aJsd8JNPntMXAru9Yc_mSTjwACNgYAAlXRmFRk9EaCml_QGyQE",
+                        "file_unique_id": "AgADNgYAAlXRmFQ",
+                        "file_size": 15729
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "ok": true,
+        "result": [
+            {
+                "update_id": 55578534,
+                "channel_post": {
+                    "message_id": 349,
+                    "sender_chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "chat": {
+                        "id": -1001497433339,
+                        "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
+                        "type": "channel"
+                    },
+                    "date": 1653843614,
+                    "text": "Hi"
+                }
+            }
+        ]
+    }
+]
