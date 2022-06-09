@@ -53,7 +53,7 @@ oauthlib==3.1.0
 olefile==0.46
 paramiko==2.6.0
 pexpect==4.6.0
-Pillow==7.0.0
+Pillow==9.0.1
 platformdirs==2.5.2
 protobuf==3.6.1
 pyasn1==0.4.2
