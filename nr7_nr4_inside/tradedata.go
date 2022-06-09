@@ -79,7 +79,7 @@ func getTradeData() []*tradeData {
 		symbolMap[token.Symbol] = token.Token
 	}
 
-	return readAndPrepareData(getLatestFileLink()) //"https://api.telegram.org/file/bot1871366666:AAGpNZy9Kcyt_haOhslLH1t7RHqRgUqtn10/documents/file_1.xlsx"
+	return readAndPrepareData(getLatestFileLink()) //"https://api.telegram.org/file/<bot-token>/documents/file_1.xlsx"
 }
 
 func readAndPrepareData(link string) []*tradeData {
