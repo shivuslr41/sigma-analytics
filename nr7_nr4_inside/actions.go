@@ -14,7 +14,7 @@ func (t *tradeData) placeOrder() {
 	_ = createNewSession(t.angelTradingClient)
 
 	t.placingOrder = true
-	maxRetries := 10
+	maxRetries := 5
 	i := 0
 	for i = 0; i < maxRetries; i++ {
 		order, err := t.angelTradingClient.PlaceOrder(
@@ -50,7 +50,7 @@ func (t *tradeData) placeOrder() {
 	sendMessage("order placed for: " + t.symbol)
 
 	// check order status
-	maxRetries = 10
+	maxRetries = 5
 	for i = 0; i < maxRetries; i++ {
 		p, err := t.angelTradingClient.GetPositions()
 		fmt.Println("GetPositions", p, err, t.symbol)
@@ -73,7 +73,9 @@ func (t *tradeData) placeOrder() {
 				}
 			}
 		}
-		break
+
+		// continue till order is marked as completed/executed
+		i--
 	}
 	if maxRetries == i {
 		fmt.Println("max retries attemped..", t.symbol)
