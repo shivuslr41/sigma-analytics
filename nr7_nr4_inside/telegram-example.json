@@ -7,18 +7,18 @@
                 "channel_post": {
                     "message_id": 350,
                     "sender_chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
                     "chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
                     "date": 1653846404,
                     "forward_from_chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
@@ -43,12 +43,12 @@
                 "channel_post": {
                     "message_id": 348,
                     "sender_chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
                     "chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
@@ -72,12 +72,12 @@
                 "channel_post": {
                     "message_id": 349,
                     "sender_chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
                     "chat": {
-                        "id": -1001497433339,
+                        "id": -123456789,
                         "title": "SiGma Analytics\ud83d\udcc8\ud83d\udcc9",
                         "type": "channel"
                     },
