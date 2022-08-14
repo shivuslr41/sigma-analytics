@@ -1,5 +1,6 @@
 '''scanner for nr777 statergy - run every monday 8 AM IST to make use of this effectively'''
 import time
+import re
 import sys
 from datetime import date
 from datetime import timedelta
@@ -187,17 +188,19 @@ while i<len(nifty500_list):
         time.sleep(10)
         continue
 
-for t in passed_tickers_without_volume:
+for idx, t in passed_tickers_without_volume:
     print('passed without volume condition -> ', t)
+    passed_tickers_without_volume[idx] = re.sub('[^a-zA-Z0-9\n\.]', ' ', t)
 
-for t in passed_tickers:
+for idx, t in passed_tickers:
     print('passed with all conditions -> ', t)
+    passed_tickers[idx] = re.sub('[^a-zA-Z0-9\n\.]', ' ', t)
 
 if retry == MAX_RETRY:
     sys.exit(0)
 
 msg_wo_vol = 'passed without volume condition -> '
-tickers_wo_vol = ' <-> '.join(passed_tickers_without_volume)
+tickers_wo_vol = ' || '.join(passed_tickers_without_volume)
 msg_wo_vol+=tickers_wo_vol
 send_message(msg_wo_vol)
 
@@ -205,6 +208,6 @@ send_message(msg_wo_vol)
 time.sleep(1)
 
 msg_vol = 'passed with all conditions -> '
-tickers_vol = ' <-> '.join(passed_tickers)
+tickers_vol = ' || '.join(passed_tickers)
 msg_vol+=tickers_vol
 send_message(msg_vol)
