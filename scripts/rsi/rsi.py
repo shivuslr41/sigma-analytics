@@ -43,33 +43,33 @@ nfdf = pd.read_csv(f'data/{ticker}.csv', names=['date', 'adj_close', 'close', 'h
 # convert date column from object to datetime
 nfdf['date'] = pd.to_datetime(nfdf['date'])
 
-def process_dates_and_months(dates, months):
+def process_dates_and_months(singal_dates, target_months):
     result = []
 
     # Loop until one of the lists is empty
-    while dates and months:
-        # Compare the earliest dates in each list
-        if dates[0] < months[0]:
-            # Pop the earliest date from dates and add it to result list
-            result.append(('buy', dates.pop(0)))
-        elif dates[0] == months[0]:
-            # Pop the earliest date from months and add it to result
-            result.append(('calc', months.pop(0)))
-            # Pop the earliest date from dates and add it to result list
-            result.append(('buy', dates.pop(0)))
+    while singal_dates and target_months:
+        # Compare the earliest singal_dates in each list
+        if singal_dates[0] < target_months[0]:
+            # Pop the earliest date from singal_dates and add it to result list
+            result.append(('buy', singal_dates.pop(0)))
+        elif singal_dates[0] == target_months[0]:
+            # Pop the earliest date from target_months and add it to result
+            result.append(('calc', target_months.pop(0)))
+            # Pop the earliest date from singal_dates and add it to result list
+            result.append(('buy', singal_dates.pop(0)))
         else:
-            # Pop the earliest date from months and add it to result
-            result.append(('calc', months.pop(0)))
+            # Pop the earliest date from target_months and add it to result
+            result.append(('calc', target_months.pop(0)))
 
-    # Add any remaining dates from dates or months to result
-    for date in dates:
-        result.append(('buy', date))
-    for month in months:
+    # Add any remaining dates from singal_dates or months to result
+    for d in singal_dates:
+        result.append(('buy', d))
+    for month in target_months:
         result.append(('calc', month))
     
     return result
 
-# for ticker in ['ADANIENSOL']:
+# for ticker in ['ATGL']:
 for ticker in df['symbol'].unique():
     print("started", ticker)
 
@@ -101,10 +101,10 @@ for ticker in df['symbol'].unique():
             break
 
         # get close price from tdf for ticker on that month of date
-        close = tdf[(tdf['date'].dt.to_period('M') == date.to_period('M'))]['open'].iloc[0]
+        close = tdf[(tdf['date'].dt.to_period('M') == date.to_period('M'))]['close'].iloc[0]
 
         # get close price from nfdf for niftybees on that month of date
-        nf_close = nfdf[(nfdf['date'].dt.to_period('M') == date.to_period('M'))]['open'].iloc[0]
+        nf_close = nfdf[(nfdf['date'].dt.to_period('M') == date.to_period('M'))]['close'].iloc[0]
 
         if action == 'buy':
             if bought_count == 0:
