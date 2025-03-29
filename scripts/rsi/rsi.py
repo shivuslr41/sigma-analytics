@@ -69,7 +69,7 @@ def process_dates_and_months(singal_dates, target_months):
     
     return result
 
-# for ticker in ['ATGL']:
+# for ticker in ['BHEL']:
 for ticker in df['symbol'].unique():
     print("started", ticker)
 
@@ -107,25 +107,37 @@ for ticker in df['symbol'].unique():
         nf_close = nfdf[(nfdf['date'].dt.to_period('M') == date.to_period('M'))]['close'].iloc[0]
 
         if action == 'buy':
-            if bought_count == 0:
-                bought_count += 1
-                buy_prices.append(close)
-                avg_buy = close
-                nf_buy_prices.append(nf_close)
-                nf_avg_buy = nf_close
-                continue
+            # if bought_count == 0:
+            #     bought_count += 1
+            #     buy_prices.append(close)
+            #     avg_buy = close
+            #     nf_buy_prices.append(nf_close)
+            #     nf_avg_buy = nf_close
+            #     continue
 
-            buy_prices.append(close*bought_count)
-            nf_buy_prices.append(nf_close*bought_count)
-            avg_buy = sum(buy_prices) / (bought_count * 2)
-            nf_avg_buy = sum(nf_buy_prices) / (bought_count * 2)
-            bought_count = bought_count * 2
+            # buy_prices.append(close*bought_count)
+            # nf_buy_prices.append(nf_close*bought_count)
+            # avg_buy = sum(buy_prices) / (bought_count * 2)
+            # nf_avg_buy = sum(nf_buy_prices) / (bought_count * 2)
+            # bought_count = bought_count * 2
+            avg_buy += close
+            bought_count += 1
+            nf_avg_buy += nf_close
         else:
              # calculate profit percentage
-            profit_percentage = ((close - avg_buy) / avg_buy) * 100
+            # profit_percentage = ((close - avg_buy) / avg_buy) * 100
+            
+            avg = avg_buy / bought_count
+            profit_percentage = ((close - (avg)) / avg) * 100
 
             # calculate profit percentage of niftybees
-            nf_profit_percentage = ((nf_close - nf_avg_buy) / nf_avg_buy) * 100
+            # nf_profit_percentage = ((nf_close - nf_avg_buy) / nf_avg_buy) * 100
+            
+            nf_avg = nf_avg_buy / bought_count
+            nf_profit_percentage = ((nf_close - nf_avg) / nf_avg) * 100
+
+            # print(date, avg_buy, nf_avg_buy)
+            # print(date, avg, nf_avg)
 
             # add profit % for in the fdf
             fdf.loc[fdf['symbol'] == ticker, [gaps[gap_count], gaps[gap_count+1]]] = [profit_percentage, nf_profit_percentage]
@@ -138,4 +150,4 @@ for ticker in df['symbol'].unique():
     # exit(0)
     print("completed", ticker)
 
-fdf.to_csv('returns.csv', index=False)
+fdf.to_csv('returnss.csv', index=False)
